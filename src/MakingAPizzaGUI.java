@@ -1,13 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Kieran Bates
+ * September 25, 2019
+ * This program calculates the total cost, including tax and labour expenses, of a pizza based on its diameter which is specified by the user
  */
 
-/**
- *
- * @author davidbates
- */
 public class MakingAPizzaGUI extends javax.swing.JFrame {
 
     /**
@@ -228,43 +224,43 @@ public class MakingAPizzaGUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        final double labour = 0.75;
-        final double rent = 0.99;
-        final double diameter = 0.50;
-        double pizzaDiameter;
-        double subTotal;
-        double tax;
-        double total;
+        final double labour = 0.75; //Declare constant for labour cost
+        final double rent = 0.99; //Declare constant for facility rent cost
+        final double diameter = 0.50; //Declare constant for price per centimeter
+        double pizzaDiameter; //Declare variable for user pizza diameter input
+        double subTotal; //Declare variable for subtotal
+        double tax; //Declare variable for tax
+        double total; //Declare variable for final total cost
         
-        pizzaDiameter = Double.parseDouble(diameterInput.getText());
+        pizzaDiameter = Double.parseDouble(diameterInput.getText()); //Store the user input from the text field in the pizzaDiameter variable
         
-        if (pizzaDiameter > 40) {
+        if (pizzaDiameter > 40) { //If user input is greater than 40 cm, perform the following method
         
-        printLine.setText("Woah, big pizza!");
+        printLine.setText("Woah, big pizza!"); //Show text to the user in a label
         printLine2.setText("You might need a truck to get this home!");
             
-        subTotal = labour + rent + (pizzaDiameter * diameter);
+        subTotal = labour + rent + (pizzaDiameter * diameter); //Perform the subtotal calculation
         
-        tax = (0.13 * subTotal) * 100;
+        tax = (0.13 * subTotal) * 100; //Calculate and round tax to two decimal places
         tax = Math.round(tax);
         tax = tax / 100;
         
-        subTotal = subTotal * 100;
+        subTotal = subTotal * 100; //Round subtotal
         subTotal = Math.round(subTotal);
         subTotal = subTotal / 100;
         
-        total = (tax + subTotal) * 100;
+        total = (tax + subTotal) * 100; //Calculate total by adding tax and subtotal and round total
         total = Math.round(total);
         total = total / 100;
         
-        taxField.setText("$" +String.valueOf(tax));
-        subtotalField.setText("$" +String.valueOf(subTotal));
-        totalField.setText("$" +String.valueOf(total));
+        taxField.setText("$" +String.valueOf(tax)); //output the data stored in the tax variable to the tax  text field
+        subtotalField.setText("$" +String.valueOf(subTotal)); //output the data stored in the subtotal variable to the subtotal text field
+        totalField.setText("$" +String.valueOf(total)); //output the data stored in the total variable to the total text field
         
         }
         
-        else if ((pizzaDiameter >= 20) && (pizzaDiameter <= 40)) {
-            
+        else if ((pizzaDiameter >= 20) && (pizzaDiameter <= 40)) { //If user input is greater than or equal to 20 cm but less than or equal to 40 cm, perform the following method
+        // the following method is the same as the previous method    
         printLine.setText("This will be delicious!");
         printLine2.setText("");
             
@@ -288,7 +284,7 @@ public class MakingAPizzaGUI extends javax.swing.JFrame {
         
         }
         
-        else if ((pizzaDiameter >= 1) && (pizzaDiameter <= 15)) {
+        else if ((pizzaDiameter >= 1) && (pizzaDiameter <= 15)) { //if user input is greater than or equal to 1 cm or less than or equal to 15 cm, perform the following method
         
         printLine.setText("We are going to make");
         printLine2.setText("you a cute little pizza!");
@@ -313,12 +309,12 @@ public class MakingAPizzaGUI extends javax.swing.JFrame {
         
         }
         
-        else {
+        else { //If user input does not meet any of the previous conditions, perform the following method
         
-        printLine.setText("");
+        printLine.setText(""); //Clear the printLine labels
         printLine2.setText("");
             
-        subTotal = labour + rent + (pizzaDiameter * diameter);
+        subTotal = labour + rent + (pizzaDiameter * diameter); //perform the same mathematical calculations as the previous methods
         
         tax = (0.13 * subTotal) * 100;
         tax = Math.round(tax);
